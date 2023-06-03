@@ -268,72 +268,72 @@ Route::group(['middleware' =>['admin:admin']], function(){
     // Route::get('/admin/room/gallery/delete/{id}', [AdminRoomController::class, 'gallery_delete'])->name('admin_room_gallery_delete');
 
 
-    Route::get('/admin/data/kota/view', [AdminKotaController::class, 'index'])->name('admin_kota_view')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/kota/add', [AdminKotaController::class, 'add'])->name('admin_kota_add')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/kota/store', [AdminKotaController::class, 'store'])->name('admin_kota_store')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/kota/edit/{id}', [AdminKotaController::class, 'edit'])->name('admin_kota_edit')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/kota/update/{id}', [AdminKotaController::class, 'update'])->name('admin_kota_update')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/kota/delete/{id}', [AdminKotaController::class, 'delete'])->name('admin_kota_delete')->middleware('issuperadmin', 'isadmin');
+    Route::get('/admin/data/kota/view', [AdminKotaController::class, 'index'])->name('admin_kota_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/kota/add', [AdminKotaController::class, 'add'])->name('admin_kota_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/kota/store', [AdminKotaController::class, 'store'])->name('admin_kota_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/kota/edit/{id}', [AdminKotaController::class, 'edit'])->name('admin_kota_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/kota/update/{id}', [AdminKotaController::class, 'update'])->name('admin_kota_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/kota/delete/{id}', [AdminKotaController::class, 'delete'])->name('admin_kota_delete')->middleware(['auth', 'issuperadmin']);
 
 
-    Route::get('/admin/data/apartement/view', [AdminApartementController::class, 'index'])->name('admin_apartement_view')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/apartement/add', [AdminApartementController::class, 'add'])->name('admin_apartement_add')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/apartement/store', [AdminApartementController::class, 'store'])->name('admin_apartement_store')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/apartement/edit/{id}', [AdminApartementController::class, 'edit'])->name('admin_apartement_edit')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/apartement/update/{id}', [AdminApartementController::class, 'update'])->name('admin_apartement_update')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/apartement/delete/{id}', [AdminApartementController::class, 'delete'])->name('admin_apartement_delete')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/apartement/gallery/{id}', [AdminApartementController::class, 'gallery'])->name('admin_apartement_gallery')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/apartement/gallery/store/{id}', [AdminApartementController::class, 'gallery_store'])->name('admin_apartement_gallery_store')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/apartement/gallery/delete/{id}', [AdminApartementController::class, 'gallery_delete'])->name('admin_apartement_gallery_delete')->middleware('issuperadmin', 'isadmin');
+    Route::get('/admin/data/apartement/view', [AdminApartementController::class, 'index'])->name('admin_apartement_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/apartement/add', [AdminApartementController::class, 'add'])->name('admin_apartement_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/apartement/store', [AdminApartementController::class, 'store'])->name('admin_apartement_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/apartement/edit/{id}', [AdminApartementController::class, 'edit'])->name('admin_apartement_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/apartement/update/{id}', [AdminApartementController::class, 'update'])->name('admin_apartement_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/apartement/delete/{id}', [AdminApartementController::class, 'delete'])->name('admin_apartement_delete')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/apartement/gallery/{id}', [AdminApartementController::class, 'gallery'])->name('admin_apartement_gallery')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/apartement/gallery/store/{id}', [AdminApartementController::class, 'gallery_store'])->name('admin_apartement_gallery_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/apartement/gallery/delete/{id}', [AdminApartementController::class, 'gallery_delete'])->name('admin_apartement_gallery_delete')->middleware(['auth', 'issuperadmin']);
 
 
-    Route::get('/admin/data/alamat/view', [AdminAlamatController::class, 'index'])->name('admin_alamat_view')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/alamat/add', [AdminAlamatController::class, 'add'])->name('admin_alamat_add')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/alamat/store', [AdminAlamatController::class, 'store'])->name('admin_alamat_store')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/alamat/edit/{id}', [AdminAlamatController::class, 'edit'])->name('admin_alamat_edit')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/alamat/update/{id}', [AdminAlamatController::class, 'update'])->name('admin_alamat_update')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/alamat/delete/{id}', [AdminAlamatController::class, 'delete'])->name('admin_alamat_delete')->middleware('issuperadmin', 'isadmin');
+    Route::get('/admin/data/alamat/view', [AdminAlamatController::class, 'index'])->name('admin_alamat_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/alamat/add', [AdminAlamatController::class, 'add'])->name('admin_alamat_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/alamat/store', [AdminAlamatController::class, 'store'])->name('admin_alamat_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/alamat/edit/{id}', [AdminAlamatController::class, 'edit'])->name('admin_alamat_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/alamat/update/{id}', [AdminAlamatController::class, 'update'])->name('admin_alamat_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/alamat/delete/{id}', [AdminAlamatController::class, 'delete'])->name('admin_alamat_delete')->middleware(['auth', 'issuperadmin']);
 
 
-    Route::get('/admin/data/kamar/view', [AdminKamarController::class, 'index'])->name('admin_kamar_view')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/kamar/add', [AdminKamarController::class, 'add'])->name('admin_kamar_add')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/kamar/store', [AdminKamarController::class, 'store'])->name('admin_kamar_store')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/kamar/edit/{id}', [AdminKamarController::class, 'edit'])->name('admin_kamar_edit')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/kamar/update/{id}', [AdminKamarController::class, 'update'])->name('admin_kamar_update')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/kamar/delete/{id}', [AdminKamarController::class, 'delete'])->name('admin_kamar_delete')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/kamar/change-status/{id}', [AdminKamarController::class, 'change_status'])->name('admin_kamar_change_status')->middleware('issuperadmin', 'isadmin');
+    Route::get('/admin/data/kamar/view', [AdminKamarController::class, 'index'])->name('admin_kamar_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/kamar/add', [AdminKamarController::class, 'add'])->name('admin_kamar_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/kamar/store', [AdminKamarController::class, 'store'])->name('admin_kamar_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/kamar/edit/{id}', [AdminKamarController::class, 'edit'])->name('admin_kamar_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/kamar/update/{id}', [AdminKamarController::class, 'update'])->name('admin_kamar_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/kamar/delete/{id}', [AdminKamarController::class, 'delete'])->name('admin_kamar_delete')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/kamar/change-status/{id}', [AdminKamarController::class, 'change_status'])->name('admin_kamar_change_status')->middleware(['auth', 'issuperadmin']);
 
 
-    Route::get('/admin/data/duration/view', [AdminDurationController::class, 'index'])->name('admin_duration_view')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/duration/add', [AdminDurationController::class, 'add'])->name('admin_duration_add')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/duration/store', [AdminDurationController::class, 'store'])->name('admin_duration_store')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/duration/edit/{id}', [AdminDurationController::class, 'edit'])->name('admin_duration_edit')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/duration/update/{id}', [AdminDurationController::class, 'update'])->name('admin_duration_update')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/duration/delete/{id}', [AdminDurationController::class, 'delete'])->name('admin_duration_delete')->middleware('issuperadmin', 'isadmin');
+    Route::get('/admin/data/duration/view', [AdminDurationController::class, 'index'])->name('admin_duration_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/duration/add', [AdminDurationController::class, 'add'])->name('admin_duration_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/duration/store', [AdminDurationController::class, 'store'])->name('admin_duration_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/duration/edit/{id}', [AdminDurationController::class, 'edit'])->name('admin_duration_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/duration/update/{id}', [AdminDurationController::class, 'update'])->name('admin_duration_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/duration/delete/{id}', [AdminDurationController::class, 'delete'])->name('admin_duration_delete')->middleware(['auth', 'issuperadmin']);
 
 
-    Route::get('/admin/data/harga/view', [AdminHargaController::class, 'index'])->name('admin_harga_view')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/harga/add', [AdminHargaController::class, 'add'])->name('admin_harga_add')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/harga/store', [AdminHargaController::class, 'store'])->name('admin_harga_store')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/harga/edit/{id}', [AdminHargaController::class, 'edit'])->name('admin_harga_edit')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/harga/update/{id}', [AdminHargaController::class, 'update'])->name('admin_harga_update')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/harga/delete/{id}', [AdminHargaController::class, 'delete'])->name('admin_harga_delete')->middleware('issuperadmin', 'isadmin');
+    Route::get('/admin/data/harga/view', [AdminHargaController::class, 'index'])->name('admin_harga_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/harga/add', [AdminHargaController::class, 'add'])->name('admin_harga_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/harga/store', [AdminHargaController::class, 'store'])->name('admin_harga_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/harga/edit/{id}', [AdminHargaController::class, 'edit'])->name('admin_harga_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/harga/update/{id}', [AdminHargaController::class, 'update'])->name('admin_harga_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/harga/delete/{id}', [AdminHargaController::class, 'delete'])->name('admin_harga_delete')->middleware(['auth', 'issuperadmin']);
 
 
-    Route::get('/admin/data/broker/view', [AdminBrokerController::class, 'index'])->name('admin_broker_view')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/broker/add', [AdminBrokerController::class, 'add'])->name('admin_broker_add')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/broker/store', [AdminBrokerController::class, 'store'])->name('admin_broker_store')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/broker/edit/{id}', [AdminBrokerController::class, 'edit'])->name('admin_broker_edit')->middleware('issuperadmin', 'isadmin');
-    Route::post('/admin/data/broker/update/{id}', [AdminBrokerController::class, 'update'])->name('admin_broker_update')->middleware('issuperadmin', 'isadmin');
-    Route::get('/admin/data/broker/delete/{id}', [AdminBrokerController::class, 'delete'])->name('admin_broker_delete')->middleware('issuperadmin', 'isadmin');
+    Route::get('/admin/data/broker/view', [AdminBrokerController::class, 'index'])->name('admin_broker_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/broker/add', [AdminBrokerController::class, 'add'])->name('admin_broker_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/broker/store', [AdminBrokerController::class, 'store'])->name('admin_broker_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/broker/edit/{id}', [AdminBrokerController::class, 'edit'])->name('admin_broker_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/broker/update/{id}', [AdminBrokerController::class, 'update'])->name('admin_broker_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/broker/delete/{id}', [AdminBrokerController::class, 'delete'])->name('admin_broker_delete')->middleware(['auth', 'issuperadmin']);
 
 
-    Route::get('/admin/data/pelanggan/view', [AdminCustomersController::class, 'index'])->name('admin_pelanggan_view')->middleware('issuperadmin', 'isadmin', 'isstaff');
-    Route::get('/admin/data/pelanggan/add', [AdminCustomersController::class, 'add'])->name('admin_pelanggan_add')->middleware('issuperadmin', 'isadmin', 'isstaff');
-    Route::post('/admin/data/pelanggan/store', [AdminCustomersController::class, 'store'])->name('admin_pelanggan_store')->middleware('issuperadmin', 'isadmin', 'isstaff');
-    Route::get('/admin/data/pelanggan/edit/{id}', [AdminCustomersController::class, 'edit'])->name('admin_pelanggan_edit')->middleware('issuperadmin', 'isadmin', 'isstaff');
-    Route::post('/admin/data/pelanggan/update/{id}', [AdminCustomersController::class, 'update'])->name('admin_pelanggan_update')->middleware('issuperadmin', 'isadmin', 'isstaff');
-    Route::get('/admin/data/pelanggan/delete/{id}', [AdminCustomersController::class, 'delete'])->name('admin_pelanggan_delete')->middleware('issuperadmin', 'isadmin', 'isstaff');
+    Route::get('/admin/data/pelanggan/view', [AdminCustomersController::class, 'index'])->name('admin_pelanggan_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/pelanggan/add', [AdminCustomersController::class, 'add'])->name('admin_pelanggan_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/pelanggan/store', [AdminCustomersController::class, 'store'])->name('admin_pelanggan_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/pelanggan/edit/{id}', [AdminCustomersController::class, 'edit'])->name('admin_pelanggan_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/data/pelanggan/update/{id}', [AdminCustomersController::class, 'update'])->name('admin_pelanggan_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/pelanggan/delete/{id}', [AdminCustomersController::class, 'delete'])->name('admin_pelanggan_delete')->middleware(['auth', 'issuperadmin']);
 
 
     Route::get('/admin/transaction/view', [AdminTransactionController::class, 'index'])->name('admin_transaction_view');
