@@ -1,19 +1,19 @@
 <div class="navbar-bg"></div>
-        <nav class="navbar navbar-expand-lg main-navbar">
-            <form class="form-inline mr-auto">
-                <ul class="navbar-nav mr-3">
+        <nav class="navbar navbar-expand main-navbar">
+            <form class="form-inline">
+                <ul class="navbar-nav">
                     <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fa fa-bars"></i></a></li>
-                    <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+                    {{-- <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li> --}}
                 </ul>
             </form>
-            <ul class="navbar-nav navbar-right btn-block justify-content-end">
+            <ul class="navbar-nav ml-auto btn-block justify-content-end">
                 {{-- <li class="nav-link">
                     <a href="/" target="_blank" class="btn btn-warning">Front End</a>
                 </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img alt="image" src="{{ asset('uploads/'.Auth::guard('admin')->user()->photo) }}" class="rounded-circle">
-                        <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('admin')->user()->name }}</div>
+                        <img alt="image" src="{{ asset('uploads/'.Auth::guard('admin')->user()->photo) }}" class="rounded-circle">{{ Auth::guard('admin')->user()->name }}
+
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('admin_profile') }}"><i class="fa fa-user"></i> Edit Profile</a></li>

@@ -32,26 +32,24 @@ class AdminTransactionController extends Controller
 
     public function index()
     {
+
+        $customers = Pelanggan::get();
+        return view('admin.transaction_detail', compact('customers'));
+    }
+
+    public function add($id)
+    {
+        // $alamat = Auth::guard('admin')->user()->alamat_id;
+        $all_durations = Duration::get();
+        $all_customers = Pelanggan::get();
+        $all_brokers = Broker::get();
         $all_kamars = Kamar::
         with([
             'kamarAlamat',
             'kamarAlamat.alamatKota',
             'kamarAlamat.alamatApartement',
             'durations'
-        ])
-        // ->where('alamat_id', '=', $alamat)
-        ->get();
-        $transactions = Transaction::with(['transactionKamar', 'transactionDuration', 'transactionCustomer', 'transactionBroker'])->get();
-        return view('admin.transaction_detail', compact('transactions', 'all_kamars'));
-    }
-
-    public function add()
-    {
-        $alamat = Auth::guard('admin')->user()->alamat_id;
-        $all_kamars = Kamar::where('alamat_id', '=', $alamat)->get();
-        $all_durations = Duration::get();
-        $all_customers = Pelanggan::get();
-        $all_brokers = Broker::get();
+        ])->where('id',$id)->first();
 
         return view('admin.transaction_add',compact('all_kamars', 'all_durations', 'all_customers', 'all_brokers'));
     }

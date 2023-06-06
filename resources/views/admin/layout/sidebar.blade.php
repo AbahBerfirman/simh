@@ -98,7 +98,7 @@
 
             {{-- <li class="{{ Request::is('admin/order/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_orders') }}" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Orders"><i class="fa fa-cart-plus"></i> <span>Orders</span></a></li> --}}
 
-            <li class="{{ Request::is('admin/transaction/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_transaction_view') }}" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="transactions"><i class="fa fa-cart-plus"></i> <span>Transactions</span></a></li>
+            <li class="{{ Request::is('admin/transaction/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_transaction_view') }}" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="transactions"><i class="fa fa-cart-plus"></i> <span>Check-In</span></a></li>
 
             {{-- <li class="{{ Request::is('admin/slide/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_slide_view') }}" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Slide"><i class="fa fa-cubes"></i> <span>Slide</span></a></li> --}}
 

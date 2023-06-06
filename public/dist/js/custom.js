@@ -24,4 +24,8 @@
         }
     });
 
+    $(document).ready(function() {
+        $('.select2Custom').select2();
+    });
+
 })(jQuery);

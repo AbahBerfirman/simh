@@ -1,9 +1,9 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Add Transaction')
+@section('heading', 'Input Data Tamu')
 
 @section('right_top_button')
-<a href="{{ route('admin_transaction_view') }}" class="btn btn-primary"><i class="fa fa-eye"></i> View All</a>
+<a href="{{ route('admin_transaction_view') }}" class="btn btn-primary"><i class="fa fa-chevron-left"></i>  Back</a>
 @endsection
 
 @section('main_content')
@@ -18,31 +18,15 @@
                             <div class="col-md-12">
                                 <div class="mb-4">
                                     <label class="form-label">Kamar *</label>
-                                    <select name="arr_kamars[]" class="form-control">
-                                        <option value="">--- Pilih ---</option>
-                                        @php $i=0; @endphp
-                                        @foreach($all_kamars as $item)
-                                        @php $i++; @endphp
-                                        <option value="{{ $item->id }}">{{ $item->kamarAlamat->alamatKota->name }} {{ $item->kamarAlamat->alamatApartement->name }} No. Kamar {{ $item->no_kamar }}</option>
-                                        @endforeach
-                                    </select>
-                                    {{-- @php $i=0; @endphp
-                                    @foreach($all_kamars as $item)
-                                    @php $i++; @endphp
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" value="{{ $item->id }}" id="defaultCheck{{ $i }}" name="arr_kamars[]">
-                                        <label class="form-check-label" for="defaultCheck{{ $i }}">
-                                            {{ $item->kamarAlamat->alamatKota->name }} {{ $item->kamarAlamat->alamatApartement->name }} No. Kamar {{ $item->no_kamar }}
-                                        </label>
-                                    </div>
-                                    @endforeach --}}
+                                    <input type="hidden" class="form-control" name="kamar_id" value="{{ $all_kamars->id }}">
+                                    <input type="text" class="form-control" value="{{ $all_kamars->kamarAlamat->alamatApartement->name }} No.{{ $all_kamars->no_kamar }}" readonly>
                                 </div>
                                 <div class="mb-4">
-                                    <label class="form-label">Duration *</label>
+                                    <label class="form-label">Duration *</label> <br>
                                     @php $i=0; @endphp
                                     @foreach($all_durations as $item)
                                     @php $i++; @endphp
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" value="{{ $item->id }}" id="defaultCheck{{ $i }}" name="arr_durations[]">
                                         <label class="form-check-label" for="defaultCheck{{ $i }}">
                                             {{ $item->duration }} Jam
@@ -52,7 +36,8 @@
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Customer *</label>
-                                    <select name="arr_customers[]" class="form-control">
+                                    <label class="form-label ml-auto btn-block justify-content-end">Customer *</label>
+                                    <select name="arr_customers[]" class="form-control select2Custom">
                                         <option value="">--- Pilih ---</option>
                                         @php $i=0; @endphp
                                         @foreach($all_customers as $item)

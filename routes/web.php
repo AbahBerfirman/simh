@@ -305,7 +305,7 @@ Route::group(['middleware' =>['admin:admin']], function(){
 
 
     Route::get('/admin/data/duration/view', [AdminDurationController::class, 'index'])->name('admin_duration_view')->middleware(['auth', 'issuperadmin']);
-    Route::get('/admin/data/duration/add', [AdminDurationController::class, 'add'])->name('admin_duration_add')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/data/duration/add/{id}', [AdminDurationController::class, 'add'])->name('admin_duration_add')->middleware(['auth', 'issuperadmin']);
     Route::post('/admin/data/duration/store', [AdminDurationController::class, 'store'])->name('admin_duration_store')->middleware(['auth', 'issuperadmin']);
     Route::get('/admin/data/duration/edit/{id}', [AdminDurationController::class, 'edit'])->name('admin_duration_edit')->middleware(['auth', 'issuperadmin']);
     Route::post('/admin/data/duration/update/{id}', [AdminDurationController::class, 'update'])->name('admin_duration_update')->middleware(['auth', 'issuperadmin']);
@@ -336,12 +336,12 @@ Route::group(['middleware' =>['admin:admin']], function(){
     Route::get('/admin/data/pelanggan/delete/{id}', [AdminCustomersController::class, 'delete'])->name('admin_pelanggan_delete')->middleware(['auth', 'issuperadmin']);
 
 
-    Route::get('/admin/transaction/view', [AdminTransactionController::class, 'index'])->name('admin_transaction_view');
-    Route::get('/admin/transaction/add/{id}', [AdminTransactionController::class, 'add'])->name('admin_transaction_add');
-    Route::post('/admin/transaction/store', [AdminTransactionController::class, 'store'])->name('admin_transaction_store');
-    Route::get('/admin/transaction/checkout/{id}', [AdminTransactionController::class, 'checkout'])->name('admin_transaction_checkout');
-    Route::get('/admin/transaction/edit/{id}', [AdminTransactionController::class, 'edit'])->name('admin_transaction_edit');
-    Route::post('/admin/transaction/update/{id}', [AdminTransactionController::class, 'update'])->name('admin_transaction_update');
-    Route::get('/admin/transaction/delete/{id}', [AdminTransactionController::class, 'delete'])->name('admin_transaction_delete');
+    Route::get('/admin/transaction/view', [AdminTransactionController::class, 'index'])->name('admin_transaction_view')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/transaction/add/{id}', [AdminTransactionController::class, 'add'])->name('admin_transaction_add')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/transaction/store', [AdminTransactionController::class, 'store'])->name('admin_transaction_store')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/transaction/checkout/{id}', [AdminTransactionController::class, 'checkout'])->name('admin_transaction_checkout')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/transaction/edit/{id}', [AdminTransactionController::class, 'edit'])->name('admin_transaction_edit')->middleware(['auth', 'issuperadmin']);
+    Route::post('/admin/transaction/update/{id}', [AdminTransactionController::class, 'update'])->name('admin_transaction_update')->middleware(['auth', 'issuperadmin']);
+    Route::get('/admin/transaction/delete/{id}', [AdminTransactionController::class, 'delete'])->name('admin_transaction_delete')->middleware(['auth', 'issuperadmin']);
 });
 
